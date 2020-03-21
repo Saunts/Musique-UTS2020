@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent">
+    <item
+        android:id="@+id/submenu"
+        android:title="Submenu"
+        app:showAsAction="always|withText"
+        android:orderInCategory="1"
+        >
+        <!-- Starting the text color sub menu which have three items-->
+        <menu>
+            <item
+                android:id="@+id/profile"
+                android:title="profile"
+                />
+            <item
+                android:id="@+id/green"
+                android:title="Green"
+                />
+            <item
+                android:id="@+id/blue"
+                android:title="Blue"
+                />
+        </menu>
+    </item>
+</menu>
