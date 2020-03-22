@@ -10,6 +10,10 @@ public class musicadapter extends BaseAdapter {
     private ArrayList<music> musics;
     private LayoutInflater musicInf;
 
+    public musicadapter(){
+
+    }
+
     public musicadapter(Context c, ArrayList<music> musics){
         this.musics = musics;
         this.musicInf = LayoutInflater.from(c);

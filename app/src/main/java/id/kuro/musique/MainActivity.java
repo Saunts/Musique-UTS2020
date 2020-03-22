@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements MediaPlayerContro
     private ListView musicview;
     private MusicService musicsvc;
     private Intent playIntent;
+    private musicadapter musicadapt = null;
     private boolean musicBound=false, paused=false, playbackpaused=false;
     public Controller controller;
     private androidx.appcompat.widget.Toolbar sub;
@@ -122,7 +123,8 @@ public class MainActivity extends AppCompatActivity implements MediaPlayerContro
             }
         });
 
-        musicadapter musicadapt = new musicadapter(this, listmusic);
+
+        musicadapt = new musicadapter(this, listmusic);
         musicview.setAdapter(musicadapt);
 
         setController();
@@ -192,6 +194,36 @@ public class MainActivity extends AppCompatActivity implements MediaPlayerContro
             playbackpaused=false;
         }
         controller.show(0);
+    }
+
+
+    public void toProfile(MenuItem item) {
+        Intent k = new Intent(this, profile.class);
+        startActivity(k);
+    }
+
+    public void sortdesc(MenuItem item){
+        Collections.sort(listmusic, new Comparator<music>(){
+            @Override
+            public int compare(music o1, music o2) {
+                return o2.getTitle().compareTo(o1.getTitle());
+            }
+        });
+        musicadapt.notifyDataSetChanged();
+//        musicadapter musicadapt = new musicadapter(this, listmusic);
+//        musicview.setAdapter(musicadapt);
+    }
+
+    public void sortasc(MenuItem item){
+        Collections.sort(listmusic, new Comparator<music>() {
+            @Override
+            public int compare(music o1, music o2) {
+                return o1.getTitle().compareTo(o2.getTitle());
+            }
+        });
+        musicadapt.notifyDataSetChanged();
+//        musicadapter musicadapt = new musicadapter(this, listmusic);
+//        musicview.setAdapter(musicadapt);
     }
 
     @Override
@@ -328,4 +360,5 @@ public class MainActivity extends AppCompatActivity implements MediaPlayerContro
     public int getAudioSessionId() {
         return 0;
     }
+
 }

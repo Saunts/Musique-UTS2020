@@ -14,15 +14,18 @@
         <menu>
             <item
                 android:id="@+id/profile"
+                android:onClick="toProfile"
                 android:title="profile"
                 />
             <item
-                android:id="@+id/green"
-                android:title="Green"
+                android:id="@+id/desc"
+                android:onClick="sortdesc"
+                android:title="Sort Descend"
                 />
             <item
-                android:id="@+id/blue"
-                android:title="Blue"
+                android:id="@+id/asc"
+                android:onClick="sortasc"
+                android:title="Sort Ascend"
                 />
         </menu>
     </item>
